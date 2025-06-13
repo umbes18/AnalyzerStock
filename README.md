@@ -25,9 +25,9 @@ su [Reddit](https://www.reddit.com/prefs/apps) e impostare le variabili
 4. Dopo il salvataggio troverai sotto il nome dell'app il `client id` e il `client secret`.
 5. Esporta questi valori come variabili d'ambiente prima di avviare l'applicazione:
    ```bash
-   export REDDIT_CLIENT_ID=<client_id>
-   export REDDIT_CLIENT_SECRET=<client_secret>
-   export REDDIT_USER_AGENT="AnalyzerStock"
+   export REDDIT_CLIENT_ID=zr_wEJtRXyJIdXvu7gN11Q
+   export REDDIT_CLIENT_SECRET=zWFiOQO2hich0nsw8a8UhFnau2J-yA
+   export REDDIT_USER_AGENT="analyzerstock"
    ```
 
 ## Avvio dell'app
