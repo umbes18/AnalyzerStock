@@ -18,6 +18,18 @@ Per abilitare il sentiment da Reddit è necessario creare un'applicazione
 su [Reddit](https://www.reddit.com/prefs/apps) e impostare le variabili
 `REDDIT_CLIENT_ID` e `REDDIT_CLIENT_SECRET` (basta un account gratuito).
 
+### Configurazione API di Reddit
+1. Visita la pagina [https://www.reddit.com/prefs/apps](https://www.reddit.com/prefs/apps) ed effettua l'accesso.
+2. Seleziona "create app" (o "create another app") per aggiungere una nuova applicazione.
+3. Inserisci un nome a piacere, scegli il tipo **script** e imposta il *redirect URI* a `http://localhost`.
+4. Dopo il salvataggio troverai sotto il nome dell'app il `client id` e il `client secret`.
+5. Esporta questi valori come variabili d'ambiente prima di avviare l'applicazione:
+   ```bash
+   export REDDIT_CLIENT_ID=<client_id>
+   export REDDIT_CLIENT_SECRET=<client_secret>
+   export REDDIT_USER_AGENT="AnalyzerStock"
+   ```
+
 ## Avvio dell'app
 ```bash
 python app.py
