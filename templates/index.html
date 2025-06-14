@@ -6,6 +6,7 @@
     <title>Analyzer Stock</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="/static/script.js" defer></script>
 </head>
 <body>
@@ -18,11 +19,17 @@
         {% if result %}
         <div class="result">
             <h2>Risultati per {{ ticker }}</h2>
-            <p>Prezzo attuale: {{ result.current_price | round(2) }}</p>
-            <p>Media prezzi 5y: {{ result.avg_price | round(2) }}</p>
-            <p>P/E: {{ result.pe_ratio }}</p>
-            <p>P/B: {{ result.pb_ratio }}</p>
-            <p class="fair">Fair value stimato: {{ result.fair_value | round(2) }}</p>
+            <table class="data-table">
+                <tr><th>Prezzo attuale</th><td>{{ result.current_price | round(2) }}</td></tr>
+                <tr><th>Media prezzi 5y</th><td>{{ result.avg_price | round(2) }}</td></tr>
+                <tr><th>P/E</th><td>{{ result.pe_ratio }}</td></tr>
+                <tr><th>P/B</th><td>{{ result.pb_ratio }}</td></tr>
+                <tr class="fair-row"><th>Fair value stimato</th><td>{{ result.fair_value | round(2) }}</td></tr>
+            </table>
+            <canvas id="priceChart" width="600" height="300"></canvas>
+            <script>
+                const priceData = {{ {'dates': result.dates, 'prices': result.prices}|tojson }};
+            </script>
         </div>
         <div class="sentiment">
             <h3>Sentiment Reddit ({{ sentiment.count }} post)</h3>

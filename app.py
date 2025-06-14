@@ -49,12 +49,17 @@ def fair_value_estimate(ticker):
     pb_ratio = data.info.get('priceToBook') or 0
     # simple fair value formula
     fair_value = (avg_price * 0.6) + (current_price * 0.3) + ((pe_ratio + pb_ratio) * 0.1)
+    hist_recent = hist['Close'].tail(365)
+    dates = hist_recent.index.strftime('%Y-%m-%d').tolist()
+    prices = [round(p, 2) for p in hist_recent.values]
     return {
         'current_price': current_price,
         'avg_price': avg_price,
         'pe_ratio': pe_ratio,
         'pb_ratio': pb_ratio,
         'fair_value': fair_value,
+        'dates': dates,
+        'prices': prices,
     }
 
 

@@ -40,7 +40,9 @@ L'app sarà disponibile su `http://localhost:5000`.
 - Inserimento ticker e analisi dei dati storici degli ultimi 5 anni.
 - Calcolo di un valore equo semplificato basato su media storica e multipli.
 - Analisi del sentiment Reddit (numero di post e media del punteggio VADER).
-- Interfaccia minimale con animazione di fade‑in.
+- Grafico interattivo dell'andamento dei prezzi (ultimo anno) tramite Chart.js.
+- Tabella riepilogativa dei principali indicatori.
+- Interfaccia dal look più professionale con animazioni di fade-in.
 
 Questa è una base di partenza per creare uno strumento più avanzato.
 
