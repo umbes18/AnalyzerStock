@@ -20,6 +20,8 @@ def test_post_index(mock_fair, mock_sentiment):
         'pe_ratio': 5,
         'pb_ratio': 1,
         'fair_value': 9.5,
+        'dates': ['2023-01-01'],
+        'prices': [10.0],
     }
     mock_sentiment.return_value = {'count': 5, 'sentiment': 0.1}
     client = app.app.test_client()

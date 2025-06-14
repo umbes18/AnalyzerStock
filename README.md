@@ -25,9 +25,9 @@ su [Reddit](https://www.reddit.com/prefs/apps) e impostare le variabili
 4. Dopo il salvataggio troverai sotto il nome dell'app il `client id` e il `client secret`.
 5. Esporta questi valori come variabili d'ambiente prima di avviare l'applicazione:
    ```bash
-   export REDDIT_CLIENT_ID=<client_id>
-   export REDDIT_CLIENT_SECRET=<client_secret>
-   export REDDIT_USER_AGENT="AnalyzerStock"
+   export REDDIT_CLIENT_ID=zr_wEJtRXyJIdXvu7gN11Q
+   export REDDIT_CLIENT_SECRET=zWFiOQO2hich0nsw8a8UhFnau2J-yA
+   export REDDIT_USER_AGENT="analyzerstock"
    ```
 
 ## Avvio dell'app
@@ -40,7 +40,9 @@ L'app sarà disponibile su `http://localhost:5000`.
 - Inserimento ticker e analisi dei dati storici degli ultimi 5 anni.
 - Calcolo di un valore equo semplificato basato su media storica e multipli.
 - Analisi del sentiment Reddit (numero di post e media del punteggio VADER).
-- Interfaccia minimale con animazione di fade‑in.
+- Grafico interattivo dell'andamento dei prezzi (ultimo anno) tramite Chart.js.
+- Tabella riepilogativa dei principali indicatori.
+- Interfaccia dal look più professionale con animazioni di fade-in.
 
 Questa è una base di partenza per creare uno strumento più avanzato.
 
