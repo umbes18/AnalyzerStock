@@ -27,6 +27,8 @@
         <div class="sentiment">
             <h3>Sentiment Reddit ({{ sentiment.count }} post)</h3>
             <p>Punteggio medio: {{ sentiment.sentiment | round(2) }}</p>
+            <p>Engagement totale: {{ sentiment.engagement }}</p>
+            <p class="fair">Social score: {{ sentiment.score | round(2) }}</p>
         </div>
         {% endif %}
     </div>
