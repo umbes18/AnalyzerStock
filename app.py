@@ -22,20 +22,38 @@ else:
 
 analyzer = SentimentIntensityAnalyzer()
 
-# get social sentiment from Reddit
+# get social sentiment and engagement from Reddit across multiple subreddits
 
 def reddit_sentiment(ticker):
+    """Return sentiment, engagement and a social score for a ticker."""
     if not reddit:
-        return {'count': 0, 'sentiment': 0}
+        return {'count': 0, 'sentiment': 0, 'engagement': 0, 'score': 0}
+
     query = ticker.upper()
-    posts = reddit.subreddit('stocks').search(query, limit=25)
-    scores = []
-    for post in posts:
-        vs = analyzer.polarity_scores(post.title)
-        scores.append(vs['compound'])
-    if not scores:
-        return {'count': 0, 'sentiment': 0}
-    return {'count': len(scores), 'sentiment': np.mean(scores)}
+    subreddits = ['stocks', 'wallstreetbets', 'investing']
+    posts_data = []
+    for sub in subreddits:
+        for post in reddit.subreddit(sub).search(query, limit=15):
+            vs = analyzer.polarity_scores(post.title)
+            posts_data.append({
+                'compound': vs['compound'],
+                'upvotes': getattr(post, 'score', 0),
+                'comments': getattr(post, 'num_comments', 0),
+            })
+
+    if not posts_data:
+        return {'count': 0, 'sentiment': 0, 'engagement': 0, 'score': 0}
+
+    sentiment = np.mean([p['compound'] for p in posts_data])
+    engagement = sum(p['upvotes'] + p['comments'] for p in posts_data)
+    social_score = float(sentiment) * np.log1p(engagement)
+
+    return {
+        'count': len(posts_data),
+        'sentiment': sentiment,
+        'engagement': engagement,
+        'score': social_score,
+    }
 
 
 def fair_value_estimate(ticker):

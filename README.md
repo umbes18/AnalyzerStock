@@ -3,7 +3,8 @@
 Semplice applicazione web per analizzare una stock e stimarne il fair value.
 L'app usa [Flask](https://flask.palletsprojects.com/) e recupera i dati da
 [Yahoo Finance](https://finance.yahoo.com/) tramite la libreria `yfinance`.
-Inoltre legge alcuni post da Reddit per calcolare un punteggio di sentiment.
+Inoltre legge post da più subreddit Reddit per calcolare un punteggio di sentiment
+e un indicatore di engagement complessivo.
 
 ## Requisiti
 - Python 3.8+
@@ -39,7 +40,8 @@ L'app sarà disponibile su `http://localhost:5000`.
 ## Funzionalità
 - Inserimento ticker e analisi dei dati storici degli ultimi 5 anni.
 - Calcolo di un valore equo semplificato basato su media storica e multipli.
-- Analisi del sentiment Reddit (numero di post e media del punteggio VADER).
+- Analisi del sentiment Reddit su più subreddit con calcolo di engagement e
+  social score.
 - Interfaccia minimale con animazione di fade‑in.
 
 Questa è una base di partenza per creare uno strumento più avanzato.
